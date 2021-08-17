@@ -1,67 +1,58 @@
 import React from 'react';
+import axios from 'axios';
+import Movie from './Movie';
 
-function Food({ name, picture }) {
-  return (
-    <div>
-      <h2>I like {name}</h2>
-      <img src={picture} alt={name} />
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    movies: [],
+  };
+
+  getMovies = async () => {
+    const {
+      data: {
+        data: { movies },
+      },
+    } = await axios.get(
+      'https://yts-proxy.now.sh/list_movies.json?sort_by=rating'
+    );
+
+    this.setState({ movies, isLoading: false });
+  };
+
+  componentDidMount() {
+    // 영화 데이터 로딩
+    this.getMovies();
+  }
+
+  render() {
+    const { isLoading, movies } = this.state;
+
+    return (
+      <section class='container'>
+        {isLoading ? (
+          <div class='loader'>
+            <span class='loader_text'>'Loading...'</span>
+          </div>
+        ) : (
+          <div class='movies'>
+            {movies.map((movie) => {
+              return (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  year={movie.year}
+                  title={movie.title}
+                  summary={movie.summary}
+                  poster={movie.summary.medium_cover_image}
+                />
+              );
+            })}
+          </div>
+        )}
+      </section>
+    );
+  }
 }
-
-const foodILike = [
-  {
-    id: 1,
-    name: 'Kimchi',
-    image:
-      'https://cdn.crowdpic.net/detail-thumb/thumb_d_65390B023BB5FA177242F48877F1D44B.jpg',
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'Samgyeopsal',
-    image: 'http://www.mindgil.com/news/photo/202103/70839_7148_1250.jpg',
-    rating: 4.9,
-  },
-  {
-    id: 3,
-    name: 'Bibimbap',
-    image:
-      'https://t1.daumcdn.net/liveboard/SNUH/fed8c48df21b43ada043b4cdda7dfe57.JPG',
-    rating: 4.5,
-  },
-  {
-    id: 4,
-    name: 'Doncasu',
-    image:
-      'https://kr.savorjapan.com/contents/kr/feature/img/019/feat03_ph01.jpg',
-    rating: 3.8,
-  },
-  {
-    id: 5,
-    name: 'Kimbap',
-    image:
-      'https://static.wtable.co.kr/image-resize/production/service/recipe/689/4x3/edd1e01f-4502-453b-8b61-688941aefb76.jpg',
-    rating: 4.2,
-  },
-];
-
-function App() {
-  return (
-    <div>
-      {foodILike.map((dish) => (
-        <Food key={dish.id} name={dish.name} picture={dish.image} />
-      ))}
-    </div>
-  );
-}
-
-/*
-function renderFood(dish) {
-  return <Food name={dish.name} picture={dish.image} />;
-}
-*/
-
-// const renderFood = (dish) => <Food name={dish.name} picture={dish.image} />;
 
 export default App;
