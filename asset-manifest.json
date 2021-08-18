@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Peel2/react_trainning_movie_app_2021/static/css/main.3d09c111.chunk.css",
+    "main.js": "/Peel2/react_trainning_movie_app_2021/static/js/main.955c4885.chunk.js",
+    "main.js.map": "/Peel2/react_trainning_movie_app_2021/static/js/main.955c4885.chunk.js.map",
+    "runtime-main.js": "/Peel2/react_trainning_movie_app_2021/static/js/runtime-main.1d1da4b5.js",
+    "runtime-main.js.map": "/Peel2/react_trainning_movie_app_2021/static/js/runtime-main.1d1da4b5.js.map",
+    "static/js/2.a193a94c.chunk.js": "/Peel2/react_trainning_movie_app_2021/static/js/2.a193a94c.chunk.js",
+    "static/js/2.a193a94c.chunk.js.map": "/Peel2/react_trainning_movie_app_2021/static/js/2.a193a94c.chunk.js.map",
+    "index.html": "/Peel2/react_trainning_movie_app_2021/index.html",
+    "static/css/main.3d09c111.chunk.css.map": "/Peel2/react_trainning_movie_app_2021/static/css/main.3d09c111.chunk.css.map",
+    "static/js/2.a193a94c.chunk.js.LICENSE.txt": "/Peel2/react_trainning_movie_app_2021/static/js/2.a193a94c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1d1da4b5.js",
+    "static/js/2.a193a94c.chunk.js",
+    "static/css/main.3d09c111.chunk.css",
+    "static/js/main.955c4885.chunk.js"
+  ]
+}
